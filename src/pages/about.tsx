@@ -1,3 +1,17 @@
+import useRouter from "../hooks/useRouter";
+
 export default function about() {
-  return <div>About</div>;
+  const { push } = useRouter();
+  return (
+    <div>
+      <h1> About </h1>
+      <button
+        onClick={() => {
+          push("/");
+        }}
+      >
+        go main
+      </button>
+    </div>
+  );
 }

@@ -1,16 +1,15 @@
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Router from "./components/router.tsx";
+import Route from "./components/route.tsx";
 import Root from "./pages/root.tsx";
 import About from "./pages/about.tsx";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Root />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-    </BrowserRouter>
+    <Router>
+      <Route path="/" component={<Root />} />
+      <Route path="/about" component={<About />} />
+    </Router>
   );
 }
 
