@@ -5,7 +5,7 @@ interface RouterProps {
   children: React.ReactNode;
 }
 
-const Router = ({ children }: RouterProps) => {
+export default function Router({ children }: RouterProps) {
   const [path, setPath] = useState(location.pathname);
   const routes = React.Children.toArray(
     children
@@ -24,6 +24,4 @@ const Router = ({ children }: RouterProps) => {
   }, []);
 
   return routes.find((route) => route.props.path === path);
-};
-
-export default Router;
+}
