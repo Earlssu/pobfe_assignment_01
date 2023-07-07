@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { RouteProps } from "react-router-dom";
 
 interface RouterProps {
-  route: React.ReactNode;
+  children: React.ReactNode;
 }
 
-export default function Router({ route }: RouterProps) {
+const Router = ({ children }: RouterProps) => {
   const [path, setPath] = useState(location.pathname);
   const routes = React.Children.toArray(
-    route
+    children
   ) as React.ReactElement<RouteProps>[];
 
   useEffect(() => {
@@ -24,4 +24,6 @@ export default function Router({ route }: RouterProps) {
   }, []);
 
   return routes.find((route) => route.props.path === path);
-}
+};
+
+export default Router;
